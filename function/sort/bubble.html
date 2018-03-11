@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+<!--<script src="bubble.js"></script>-->
+<script src="Carry.js"></script>
+<script>
+    //冒泡排序算法
+    function bubbleSort() {
+        var numElements = this.dataStore.length;
+        var temp;
+        //对比次数
+        for (var outer = numElements; outer >= 2; --outer) {
+            //当前值和后面的值进行对比
+            for (var inner = 0; inner <= outer - 1; ++inner) {
+                if (this.dataStore[inner] > this.dataStore[inner + 1]) {
+                    swap(
+                            this.dataStore, inner, inner + 1
+                    )
+                }
+            }
+        }
+    }
+    //调用
+    var numElements=10;
+    var mynums=new Carray(numElements);
+    mynums.setData();
+    console.log(mynums.toString());
+    mynums.bubbleSort(mynums.toString());
+    console.log(mynums.toString())
+
+</script>
+</body>
+</html>
+

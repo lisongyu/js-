@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入排序</title>
+</head>
+<body>
+
+<script src="Carry.js"></script>
+<script>
+    //冒泡排序算法
+    function bubbleSort() {
+        var numElements = this.dataStore.length;
+        var temp;
+        //对比次数
+        for (var outer = numElements; outer >= 2; --outer) {
+            //当前值和后面的值进行对比
+            for (var inner = 0; inner <= outer - 1; ++inner) {
+                if (this.dataStore[inner] > this.dataStore[inner + 1]) {
+                    swap(
+                            this.dataStore, inner, inner + 1
+                    )
+                }
+            }
+        }
+    }
+    //选择排序算法
+    function selectionSort(){
+        var min,temp;
+        for(var outer=0;outer<=this.dataStore.length-2;++outer){
+            min=outer;
+            for(var inner=outer+1;inner<=this.dataStore.length-1;++inner){
+                if(this.dataStore[inner]<this.dataStore[min]){
+                    min=inner;
+                }
+
+            }
+            swap(this.dataStore,outer,min)
+        }
+    }
+    //插入排序算法
+    function insertionSort(){
+        var temp,inner;
+        //从1开始
+        for(var outer=1;outer<this.dataStore.length;outer++){
+            temp=this.dataStore[outer];
+            inner=outer;
+            //如果inner大于0并且前面的值大于后面的值
+            while(inner>0&&(this.dataStore[inner-1]>=temp)){
+                //后面的值等于前面的值
+                this.dataStore[inner]=this.dataStore[inner-1];
+                --inner;
+            }
+            this.dataStore[inner]=temp;
+        }
+    }
+
+    var numElements=10;
+    var mynums=new Carray(numElements);
+    mynums.setData();
+    console.log(mynums.toString());
+    mynums.insertionSort();
+    console.log(mynums.toString())
+
+
+</script>
+</body>
+</html>
+
